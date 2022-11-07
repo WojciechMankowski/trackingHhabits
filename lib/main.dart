@@ -17,7 +17,11 @@ class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Habit Tracker'), backgroundColor: Colors.greenAccent,
+        ),
         body: const Center(child: Text("Hello World"),),
       ),
 
