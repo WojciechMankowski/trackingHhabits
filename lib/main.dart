@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tracking_habits/Helpers/Habits.dart';
+import 'package:tracking_habits/Helpers/habit.dart';
+import 'package:tracking_habits/Widget/HabitWidget.dart';
 
-
-// todo stworzenie klasy pojedyńczego nawyku
-// todo stworzenie klasy z listą nawyków
-// todo stworzenie klasu user
 // todo klasa do wyświetlania nawyków
 // todo klasa do dowania nowych nawyków
 // todo klasa do logowania użytkownika
@@ -16,16 +15,19 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Habits habits = Habits();
+    habits.addHabit(Habit("name", "category", "icon", 0, false));
+    habits.addHabit(Habit("name", "category", "icon", 0, false));
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Habit Tracker'), backgroundColor: Colors.greenAccent,
+          title: const Text('Habit Tracker'),
+          backgroundColor: Colors.greenAccent,
         ),
-        body: const Center(child: Text("Hello World"),),
+        body: HabitWidget(habit: habits),
       ),
-
     );
   }
 }
-
