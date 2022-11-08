@@ -7,15 +7,15 @@ import 'package:tracking_habits/Widget/title.dart';
 
 class HabitWidget extends StatelessWidget {
   const HabitWidget({super.key, required this.habit});
-  final  habit;
+  final Habit? habit;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         CheckBox(
-          isDone: habit.isDone,
+          isDone: habit!.isDone,
         ),
-        TitleWidget(title: habit.name)
+        TitleWidget(title: habit!.name)
       ],
     );
   }

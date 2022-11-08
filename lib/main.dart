@@ -26,7 +26,12 @@ class MyHome extends StatelessWidget {
           title: const Text('Habit Tracker'),
           backgroundColor: Colors.greenAccent,
         ),
-        body: HabitWidget(habit: habits),
+        body: Column(
+          children: [
+            for (var i = 0; i < habits.getHabits().length; i++)
+              HabitWidget(habit: habits.getHabits()[i]),
+          ],
+        ),
       ),
     );
   }
