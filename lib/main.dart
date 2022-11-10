@@ -19,7 +19,7 @@ class MyHome extends StatelessWidget {
     habits
         .addHabit(Habit("Wypiłem 2 litry wody", "zdrowie", "water", 0, false));
     habits.addHabit(Habit("Czytanie ksiąźki", "samorozwój", "book", 0, false));
-
+    int _selectedIndex = 0;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -32,6 +32,18 @@ class MyHome extends StatelessWidget {
             for (var i = 0; i < habits.getHabits().length; i++)
               HabitWidget(habit: habits.getHabits()[i]),
           ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          // ignore: prefer_const_literals_to_create_immutables
+          items: [
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.home), label: "Home"),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.add), label: "Dodaj nowy nawyk"),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.amber[800],
+          // onTap: ,
         ),
       ),
     );
