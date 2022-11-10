@@ -19,33 +19,43 @@ class MyHome extends StatelessWidget {
     habits
         .addHabit(Habit("Wypiłem 2 litry wody", "zdrowie", "water", 0, false));
     habits.addHabit(Habit("Czytanie ksiąźki", "samorozwój", "book", 0, false));
-    int _selectedIndex = 0;
+
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Habit Tracker'),
-          backgroundColor: Colors.greenAccent,
-        ),
-        body: Column(
-          children: [
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Habit Tracker'),
+            backgroundColor: Colors.greenAccent,
+          ),
+          body: Column(children: [
             for (var i = 0; i < habits.getHabits().length; i++)
               HabitWidget(habit: habits.getHabits()[i]),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          // ignore: prefer_const_literals_to_create_immutables
-          items: [
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: "Home"),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.add), label: "Dodaj nowy nawyk"),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
-          // onTap: ,
-        ),
-      ),
+            Row(
+              children: [
+                ElevatedButton(
+                  child: const Text('Open route'),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SecondRoute()),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ]),
+        ));
+  }
+}
+
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text("SecondRoute"),
     );
   }
 }
