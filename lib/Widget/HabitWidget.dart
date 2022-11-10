@@ -5,14 +5,20 @@ import 'package:tracking_habits/Helpers/habit.dart';
 import 'package:tracking_habits/Widget/checkbox.dart';
 import 'package:tracking_habits/Widget/title.dart';
 
+import 'IconWidget.dart';
+
 class HabitWidget extends StatelessWidget {
   const HabitWidget({super.key, required this.habit});
   final Habit? habit;
+
   @override
   Widget build(BuildContext context) {
+    print('habit!.isDone');
+    print(habit!.isDone);
     return Row(
       children: [
-        CheckBox(
+        IconWidget(icon: habit!.icon),
+        ChecBox(
           isDone: habit!.isDone,
         ),
         TitleWidget(title: habit!.name)

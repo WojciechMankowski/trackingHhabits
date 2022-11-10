@@ -16,8 +16,9 @@ class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Habits habits = Habits();
-    habits.addHabit(Habit("name", "category", "icon", 0, false));
-    habits.addHabit(Habit("name", "category", "icon", 0, false));
+    habits
+        .addHabit(Habit("Wypiłem 2 litry wody", "zdrowie", "water", 0, false));
+    habits.addHabit(Habit("Czytanie ksiąźki", "samorozwój", "book", 0, false));
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
