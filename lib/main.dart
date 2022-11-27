@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tracking_habits/Helpers/Habits.dart';
 import 'package:tracking_habits/Helpers/habit.dart';
+import 'package:tracking_habits/Widget/Add.dart';
 import 'package:tracking_habits/Widget/HabitWidget.dart';
 
 // todo klasa do wyświetlania nawyków
 // todo klasa do dowania nowych nawyków
 // todo klasa do logowania użytkownika
 void main() {
-  runApp(const MyHome());
+  runApp(MyHome());
 }
 
 class MyHome extends StatelessWidget {
-  const MyHome({Key? key}) : super(key: key);
+  MyHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class MyHome extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('Habit Tracker'),
+            title: Text('Habit Tracker'),
             backgroundColor: Colors.greenAccent,
           ),
           body: Column(children: [
@@ -32,16 +33,18 @@ class MyHome extends StatelessWidget {
               HabitWidget(habit: habits.getHabits()[i]),
             Row(
               children: [
-                ElevatedButton(
-                  child: const Text('Open route'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SecondRoute()),
-                    );
-                  },
-                ),
+                Builder(
+                  builder: (context) => ElevatedButton(
+                    child: Text('Open route'),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyForm(habits: habits)),
+                      );
+                    },
+                  ),
+                )
               ],
             ),
           ]),
@@ -50,7 +53,7 @@ class MyHome extends StatelessWidget {
 }
 
 class SecondRoute extends StatelessWidget {
-  const SecondRoute({super.key});
+  SecondRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
