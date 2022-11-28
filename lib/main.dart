@@ -3,11 +3,17 @@ import 'package:tracking_habits/Helpers/Habits.dart';
 import 'package:tracking_habits/Helpers/habit.dart';
 import 'package:tracking_habits/Widget/Add.dart';
 import 'package:tracking_habits/Widget/HabitWidget.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 // todo klasa do wyświetlania nawyków
 // todo klasa do dowania nowych nawyków
 // todo klasa do logowania użytkownika
-void main() {
+Future<void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyHome());
 }
 
@@ -20,7 +26,12 @@ class MyHome extends StatelessWidget {
     habits
         .addHabit(Habit("Wypiłem 2 litry wody", "zdrowie", "water", 0, false));
     habits.addHabit(Habit("Czytanie ksiąźki", "samorozwój", "book", 0, false));
-
+    FirebaseDatabase database = FirebaseDatabase.instance;
+    DatabaseReference starCountRef = FirebaseDatabase.instance.ref('habits/');
+    starCountRef.onValue.listen((DatabaseEvent event) {
+      final data = event.snapshot.value;
+      print(data);
+    });
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(

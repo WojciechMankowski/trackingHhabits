@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1026924865921",
+    "firebase_url": "https://app-habits-21766-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "app-habits-21766",
+    "storage_bucket": "app-habits-21766.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026924865921:android:de17b8883beb0c569a2080",
+        "android_client_info": {
+          "package_name": "com.example.tracking_habits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026924865921-a3gp8i6h5lgs0nnfl5kudpg0dljfap03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzR3IOhLbTsE5yWZqAHkXdKusoWu6l4oo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026924865921-a3gp8i6h5lgs0nnfl5kudpg0dljfap03.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1026924865921-jda8g9n7v9622djionb8kdidhakao89k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.trackingHabits"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

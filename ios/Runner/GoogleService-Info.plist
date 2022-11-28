@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1026924865921-jda8g9n7v9622djionb8kdidhakao89k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1026924865921-jda8g9n7v9622djionb8kdidhakao89k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDMCiJwIQ8OwvYu1Mmu2MLqh2nq0aDA3Bs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1026924865921</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.trackingHabits</string>
+	<key>PROJECT_ID</key>
+	<string>app-habits-21766</string>
+	<key>STORAGE_BUCKET</key>
+	<string>app-habits-21766.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1026924865921:ios:4451ecca4d11dda59a2080</string>
+	<key>DATABASE_URL</key>
+	<string>https://app-habits-21766-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
