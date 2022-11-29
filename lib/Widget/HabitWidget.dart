@@ -13,6 +13,8 @@ class HabitWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("habits");
+    print(habit?.name);
     return Row(
       children: [
         // IconWidget(icon: habit!.icon),

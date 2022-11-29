@@ -6,8 +6,8 @@ class Habits {
   List<Habit> habits = [];
 
   addHabit(Habit habit) {
-    print(habit.name);
     habits.add(habit);
+    print("we funkcji add ${this.habits.length}");
   }
 
   removeHabit(Habit habit) {
