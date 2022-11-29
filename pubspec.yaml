@@ -39,6 +39,7 @@ dependencies:
   flutter_iconpicker: ^3.2.2
   firebase_database: ^10.0.6
   firebase_core: ^2.3.0
+  cloud_firestore: ^4.1.0
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:tracking_habits/Helpers/Habits.dart';
 import 'package:tracking_habits/Helpers/habit.dart';
@@ -6,6 +7,7 @@ import 'package:tracking_habits/Widget/HabitWidget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 // todo klasa do wyświetlania nawyków
 // todo klasa do dowania nowych nawyków
@@ -23,15 +25,38 @@ class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Habits habits = Habits();
-    habits
-        .addHabit(Habit("Wypiłem 2 litry wody", "zdrowie", "water", 0, false));
-    habits.addHabit(Habit("Czytanie ksiąźki", "samorozwój", "book", 0, false));
+    habits.addHabit(Habit("Wypiłem 2 litry wody", "zdrowie", 0, false));
+    habits.addHabit(Habit("Czytanie ksiąźki", "samorozwój", 0, false));
     FirebaseDatabase database = FirebaseDatabase.instance;
-    DatabaseReference starCountRef = FirebaseDatabase.instance.ref('habits/');
+    DatabaseReference starCountRef =
+        FirebaseDatabase.instance.ref().child("habits");
+
     starCountRef.onValue.listen((DatabaseEvent event) {
-      final data = event.snapshot.value;
-      print(data);
+      Map items = event.snapshot.value as Map;
+      final keys = items.keys.toList();
+      for (var i in keys) {
+        var item = items[i] as Map;
+        String name_map = items['nane'];
+        String category_map = item['category'];
+        String name = "";
+        String category = "";
+        if (name_map.runtimeType == String &&
+            category_map.runtimeType == String) {
+          name = name_map;
+          category = category_map;
+        }
+        var howday = 0;
+        var isDone = false;
+        Habit habit = Habit(name, category, howday, isDone);
+        habits.addHabit(habit);
+      }
+      for (var i = 0; i < habits.getHabits().length; i++) {
+        print(habits.getHabits()[i].name);
+      }
+
+      // for (int i = 0; i < keys.length; i++) print(keys[i]);
     });
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
@@ -55,21 +80,11 @@ class MyHome extends StatelessWidget {
                       );
                     },
                   ),
-                )
+                ), 
+                
               ],
             ),
           ]),
         ));
-  }
-}
-
-class SecondRoute extends StatelessWidget {
-  SecondRoute({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text("SecondRoute"),
-    );
   }
 }

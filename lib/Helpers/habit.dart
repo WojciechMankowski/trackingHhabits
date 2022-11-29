@@ -7,14 +7,15 @@ class Habit {
   late int howday;
   late bool isDone;
 
-  Habit(String name, String category, String icon, int howday, bool isDone) {
-    this.name = name;
-    this.category = category;
-    this.icon = icon;
-    this.howday = howday;
-    this.isDone = isDone;
-  }
+  Habit(this.name, this.category, this.howday, this.isDone) {}
   isSucceedHabits() {
     isDone = true;
   }
+
+  // Habit.fromMap(Map<String, dynamic> data) {
+  //   name = data['name'];
+  //   category = data['category'];
+  //   howday = data['howday'];
+  //   isDone = data['isDone'];
+  // }
 }

@@ -15,7 +15,7 @@ class HabitWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        IconWidget(icon: habit!.icon),
+        // IconWidget(icon: habit!.icon),
         ChecBox(
           isDone: habit!.isDone,
         ),
